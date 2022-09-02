@@ -25,7 +25,7 @@ class Server{
         this.app.use("/api/favorito",favorito)
         this.app.use("/api/comentario",comentario)
     }
-    middlewares() {
+    middlewares(){
         this.app.use(express.json())
         this.app.use(cors())
         this.app.use(fileUpload({
