@@ -20,7 +20,7 @@ const PeliculaSchema = new mongoose.Schema({
       rol: { type: String },
     },
   ],
-  createAt: { type: Date, default: Date.new },
+  createAt: { type: Date, default: Date.new},
 });
 
 export default mongoose.model("Pelicula", PeliculaSchema);
