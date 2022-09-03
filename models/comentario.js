@@ -6,13 +6,13 @@ const ComentarioSchema = new mongoose.Schema({
         ref:"Pelicula",
         required: true
     },
-    idUsuario:{
+    idUsuario: {
         type: mongoose.Schema.ObjectId,
         ref:"Persona",
         required: true
     },
     
-    comentario:{type: String,required:true},
+    comentario: {type: String,required:true},
     
     createAt:{type:Date,default:Date.now}
 })
