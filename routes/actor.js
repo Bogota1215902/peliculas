@@ -18,13 +18,13 @@ router.post('/',[
     validarCampos       
 ],actorPost)
 router.put('/:id',actorPut)
-router.post('/upload/:id',[
+// router.post('/upload/:id',[
   
-    check('id', 'No es un ID válido').isMongoId(),
-    //check('id').custom(), 
-    validarExistaArchivo,
-    validarCampos
-],cargarArchivo)
+//     check('id', 'No es un ID válido').isMongoId(),
+//     //check('id').custom(), 
+//     validarExistaArchivo,
+//     validarCampos
+// ],cargarArchivo)
 router.post('/subir')
 check('id').isMongoId(),
 subirArchivo,

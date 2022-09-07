@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const ComentarioSchema = new mongoose.Schema({
-    idPelicula:{
+    idPelicula: {
         type: mongoose.Schema.ObjectId,
         ref:"Pelicula",
         required: true
