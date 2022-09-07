@@ -13,7 +13,6 @@ router.get('/id/:id',actorGetId)
 router.get('/nombre',actorGetNombre)
 router.post('/',[
     check('nombre', 'El nombre es obligatorio!').not().isEmpty(),
-    check('foto', 'La foto es obligatorio').not().isEmpty(),
     check('biografia', 'La biografia es obligatorio').not().isEmpty(),
     validarCampos       
 ],actorPost)
