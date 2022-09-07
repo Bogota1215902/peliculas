@@ -1,9 +1,7 @@
-import subirArchivo from '../helpers/subir-archivo.js';
-import Actor from '../models/actor.js';
-import path from 'path';
+
+import Actor from '../models/actor.js'
 import {v2 as cloudinary} from 'cloudinary'
-import url from 'url'
-import * as fs from "fs"
+
 
 const actorGet= async (req, res)=>{
  const actores = await Actor.find()
@@ -47,36 +45,6 @@ const actorPut = async (req, res)=>{
     })
 }
 
-const cargarArchivo = async (req, res) => {
-    const { id } = req.params;
-   // try {
-        let nombre
-        await subirArchivo(req.files, undefined)
-            .then(value => nombre = value)
-            .catch((err) => console.log(err));
-
-        //persona a la cual pertenece la foto
-        let actor = await Actor.findById(id);
-        if (actor.poster) {
-            const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-            const pathImage = path.join(__dirname, '../uploads/', actor.foto);
-            
-            if (fs.existsSync(pathImage)) {
-                console.log('Existe archivo');
-                fs.unlinkSync(pathImage)
-            }
-            
-        }
-       
-        await Actor.findByIdAndUpdate(id, { foto: nombre })
-        //responder
-        res.json({ nombre });
-    // } catch (error) {
-    //     res.status(400).json({ error, 'general': 'Controlador' })
-    // }
-
-}
-
 const cargarArchivoCloud = async (req, res) => {
     cloudinary.config({
         cloud_name: process.env.CLOUDINARY_NAME,
@@ -118,6 +86,6 @@ const cargarArchivoCloud = async (req, res) => {
         actor
     })
  }
-export {actorGet, actorPost,actorGetId,actorGetNombre,actorPut,cargarArchivo,cargarArchivoCloud,actorDelete}
+export {actorGet, actorPost,actorGetId,actorGetNombre,actorPut,cargarArchivoCloud,actorDelete}
 
 
