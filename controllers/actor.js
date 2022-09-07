@@ -75,6 +75,41 @@ const cargarArchivo = async (req, res) => {
     // }
 
 }
+
+const cargarArchivoCloud = async (req, res) => {
+    cloudinary.config({
+        cloud_name: process.env.CLOUDINARY_NAME,
+        api_key: process.env.CLOUDINARY_KEY,
+        api_secret: process.env.CLOUDINARY_SECRET,
+        secure: true
+    });
+
+    const { id } = req.params;
+    try {
+        //subir archivo
+
+        const { tempFilePath } = req.files.archivo
+        cloudinary.uploader.upload(tempFilePath,
+            async function (error, result) {
+                if (result) {
+                    let usuario = await Actor.findById(id);
+                    if (usuario.foto) {
+                        const nombreTemp = usuario.foto.split('/')
+                        const nombreArchivo = nombreTemp[nombreTemp.length - 1] // hgbkoyinhx9ahaqmpcwl jpg
+                        const [public_id] = nombreArchivo.split('.')
+                        cloudinary.uploader.destroy(public_id)
+                    }
+                    usuario = await Actor.findByIdAndUpdate(id, { foto: result.url })
+                    //responder
+                    res.json({ url: result.url });
+                } else {
+                    res.json(error)
+                }
+            })
+    } catch (error) {
+        res.status(400).json({ error, 'general': 'Controlador' })
+    }
+}
  const actorDelete = async (req, res)=>{
      const {id}= req.params;
     const actor= await Actor.findByIdAndDelete(id);
@@ -82,6 +117,6 @@ const cargarArchivo = async (req, res) => {
         actor
     })
  }
-export {actorGet, actorPost,actorGetId,actorGetNombre,actorPut,cargarArchivo,actorDelete}
+export {actorGet, actorPost,actorGetId,actorGetNombre,actorPut,cargarArchivo,cargarArchivoCloud,actorDelete}
 
 

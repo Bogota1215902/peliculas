@@ -1,10 +1,9 @@
 import {Router} from "express"
-import {actorGet, actorPost, actorGetId,actorGetNombre, actorPut,actorDelete} from "../controllers/actor.js"
+import {actorGet, actorPost, actorGetId,actorGetNombre, actorPut,actorDelete,cargarArchivoCloud} from "../controllers/actor.js"
 import {check} from "express-validator"
 import { validarCampos } from "../middleware/validar_campos.js"
-import { cargarArchivo } from "../controllers/actor.js"
-import subirArchivo from "../helpers/subir-archivo.js"
-import validarExistaArchivo from "../middleware/validar-existe-archivo.js"
+
+
 const router = new Router()
 
 
@@ -24,9 +23,12 @@ router.put('/:id',actorPut)
 //     validarExistaArchivo,
 //     validarCampos
 // ],cargarArchivo)
-router.post('/subir')
-check('id').isMongoId(),
-subirArchivo,
+router.post('/subir/:id',[
+    check('id').isMongoId(),
+],cargarArchivoCloud)
+
+
+
 router.delete('/:id',actorDelete)
 
 
