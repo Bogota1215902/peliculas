@@ -1,6 +1,7 @@
 import subirArchivo from '../helpers/subir-archivo.js';
 import Actor from '../models/actor.js';
 import path from 'path';
+import {v2 as cloudinary} from 'cloudinary'
 import url from 'url'
 import * as fs from "fs"
 
