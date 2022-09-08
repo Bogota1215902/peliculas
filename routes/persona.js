@@ -1,5 +1,5 @@
 import {Router} from "express"
-import {personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv} from "../controllers/persona.js"
+import {personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv, cargarArchivoCloud} from "../controllers/persona.js"
 import {check} from "express-validator"
 import {validarCampos} from "../middleware/validar_campos.js"
 import {helpersPersona} from "../helpers/persona.js"
@@ -27,6 +27,10 @@ router.post('/',[
     check('password', 'Password no es válido').isLength({ min: 6}),
     validarCampos       
 ],personaPost)
+router.post('/subir/:id',[
+    check('id').isMongoId(),
+],cargarArchivoCloud)
+
 router.put('/:id',[
     check('id').isMongoId(),
     validarCampos

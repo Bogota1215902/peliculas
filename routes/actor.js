@@ -23,5 +23,4 @@ router.post('/subir/:id',[
 
 router.delete('/:id',actorDelete)
 
-
 export default router

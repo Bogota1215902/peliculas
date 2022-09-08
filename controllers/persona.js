@@ -1,4 +1,5 @@
 import Persona from '../models/persona.js';
+import {v2 as cloudinary} from 'cloudinary'
 import { generarJWT } from '../middleware/validar-jwt.js';
 import bcryptjs from "bcryptjs"
 
