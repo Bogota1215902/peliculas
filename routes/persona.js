@@ -53,7 +53,7 @@ router.put('/desactivar/:id',[
     validarCampos
 ],personaPutDeActiv)
 
-router.get('/login/user',[
+router.post('/login/user',[
     check('email', 'El correo no es válido').isEmail(),
     check('email', 'Debes ingresar una correo').not().isEmpty(),  
     check('password', 'Debes ingresar una contrasena').not().isEmpty(),
