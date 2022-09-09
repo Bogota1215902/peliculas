@@ -3,7 +3,7 @@ import {personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail,
 import {check} from "express-validator"
 import {validarCampos} from "../middleware/validar_campos.js"
 import {helpersPersona} from "../helpers/persona.js"
-import {validarJWT} from "../middleware/validar-jwt.js"
+import {generarJWT, validarJWT} from "../middleware/validar-jwt.js"
 const router = new Router()
 
 router.get('/',[
@@ -54,10 +54,12 @@ router.put('/desactivar/:id',[
 ],personaPutDeActiv)
 
 router.post('/login/user',[
+   
     check('email', 'El correo no es válido').isEmail(),
     check('email', 'Debes ingresar una correo').not().isEmpty(),  
     check('password', 'Debes ingresar una contrasena').not().isEmpty(),
-    validarCampos    
+    validarCampos,
+    generarJWT,   
 ],personaGetLogin)
 
 

@@ -73,7 +73,7 @@ const personaPutDeActiv=async (req, res) => {
     })
 }
 const personaGetLogin= async (req, res)=>{
-    const { email, password } = req.query;
+    const { email, password } = req.body;
 
         try {
             const persona = await Persona.findOne({ email })
