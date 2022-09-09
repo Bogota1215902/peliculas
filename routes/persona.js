@@ -59,7 +59,6 @@ router.post('/login/user',[
     check('email', 'Debes ingresar una correo').not().isEmpty(),  
     check('password', 'Debes ingresar una contrasena').not().isEmpty(),
     validarCampos,
-    generarJWT,   
 ],personaGetLogin)
 
 
