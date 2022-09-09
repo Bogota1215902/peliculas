@@ -8,7 +8,7 @@ const router = new Router()
 
 
 router.get('/',actorGet)
-router.get('/id/:id',actorGetId)
+router.post('/id/:id',actorGetId)
 router.get('/nombre',actorGetNombre)
 router.post('/',[
     check('nombre', 'El nombre es obligatorio!').not().isEmpty(),

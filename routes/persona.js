@@ -3,7 +3,7 @@ import {personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail,
 import {check} from "express-validator"
 import {validarCampos} from "../middleware/validar_campos.js"
 import {helpersPersona} from "../helpers/persona.js"
-import {generarJWT, validarJWT} from "../middleware/validar-jwt.js"
+import { validarJWT} from "../middleware/validar-jwt.js"
 const router = new Router()
 
 router.get('/',[
