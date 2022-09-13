@@ -27,6 +27,7 @@ router.post('/',[
     check('password', 'Password no es válido').isLength({ min: 6}),
     validarCampos       
 ],personaPost)
+
 router.post('/subir/:id',[
     check('id').isMongoId(),
 ],imagen)
