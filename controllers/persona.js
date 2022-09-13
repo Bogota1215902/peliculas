@@ -161,4 +161,4 @@ const mostrarImagenCloud= async (req, res) => {
     }
 }
 
-export {mostrarImagenCloud, imagen, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv, imagen}
+export {mostrarImagenCloud, imagen, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv}
