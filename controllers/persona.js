@@ -138,18 +138,5 @@ const imagen = async (req, res) => {
     }
 }
 
-const mostrarImagenCloud= async (req, res) => {
-    const { id } = req.params
 
-    try {
-        let usuario = await Persona.findById(id)
-        if (usuario.poster) {
-            return res.json({ url: usuario.poster })
-        }
-        res.status(400).json({ msg: 'Falta Imagen' })
-    } catch (error) {
-        res.status(500).json({ error })
-    }
-}
-
-export {mostrarImagenCloud, imagen, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail,personPut,personaPutActive,personaPutDeActiv}
+export {imagen, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail,personPut,personaPutActive,personaPutDeActiv}
