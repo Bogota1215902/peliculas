@@ -111,34 +111,8 @@ const personaGetLogin= async (req, res)=>{
         }
 }
 
- const cargarImagen= async (req, res) => {
-    const { id } = req.params;
-    try {
-        let nombre
-        await subirArchivo(req.files, undefined)
-            .then(value => nombre = value)
-            .catch((err) => console.log(err));
 
-        //persona a la cual pertenece la foto
-        let usuario = await Persona.findById(id);
-        if (usuario.poster) {
-            const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-            const pathImage = path.join(__dirname, '../uploads/', usuario.poster);
-
-            if (fs.existsSync(pathImage)) {
-                console.log('Existe archivo');
-                fs.unlinkSync(pathImage)
-            }
-
-        }
-        usuario = await Persona.findByIdAndUpdate(id, { foto: nombre })
-        //responder
-        res.json({ nombre });
-    } catch (error) {
-        res.status(400).json({ error, 'general': 'Controlador' })
-    }
- }
-const cargarArchivoCloud = async (req, res) => {
+const imagen = async (req, res) => {
     cloudinary.config({
         cloud_name: process.env.CLOUDINARY_NAME,
         api_key: process.env.CLOUDINARY_KEY,
@@ -187,4 +161,4 @@ const mostrarImagenCloud= async (req, res) => {
     }
 }
 
-export {mostrarImagenCloud, cargarArchivoCloud, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv, cargarImagen}
+export {mostrarImagenCloud, imagen, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv, cargarImagen}

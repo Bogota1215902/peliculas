@@ -1,5 +1,5 @@
 import {Router} from "express"
-import {personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv, cargarArchivoCloud} from "../controllers/persona.js"
+import {personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv, imagen} from "../controllers/persona.js"
 import {check} from "express-validator"
 import {validarCampos} from "../middleware/validar_campos.js"
 import {helpersPersona} from "../helpers/persona.js"
@@ -29,7 +29,7 @@ router.post('/',[
 ],personaPost)
 router.post('/subir/:id',[
     check('id').isMongoId(),
-],cargarArchivoCloud)
+],imagen)
 
 router.put('/:id',[
     check('id').isMongoId(),
