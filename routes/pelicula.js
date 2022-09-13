@@ -1,5 +1,5 @@
 import {Router} from "express"
-import {peliculaPost,peliculaGet,peliculaGetId,peliculaGetTitulo,peliculaGetActoresPelicula, cargarArchivoCloud, peliculaPut,peliculaDelete} from "../controllers/pelicula.js"
+import {peliculaPost,peliculaGet,peliculaGetId,peliculaGetTitulo,peliculaGetActoresPelicula, cargarImagen, peliculaPut,peliculaDelete} from "../controllers/pelicula.js"
 import { check } from "express-validator"
 import { validarCampos } from "../middleware/validar_campos.js"
 import {helpersPelicula} from "../helpers/pelicula.js"
@@ -45,7 +45,7 @@ router.post('/',[
 
 router.post('/subir/:id',[
     check('id').isMongoId(),
-],cargarArchivoCloud)
+],cargarImagen)
 
 router.put('/:id',[
     check('id').isMongoId(),

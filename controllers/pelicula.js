@@ -57,37 +57,7 @@ const peliculaPut = async (req, res)=>{
     })
 }
 
-// const cargarArchivo = async (req, res) => {
-//     const { id } = req.params;
-//    // try {
-//         let nombre
-//         await subirArchivo(req.files, undefined)
-//             .then(value => nombre = value)
-//             .catch((err) => console.log(err));
-
-//         //persona a la cual pertenece la foto
-//         let pelicula = await Pelicula.findById(id);
-//         if (pelicula.poster) {
-//             const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-//             const pathImage = path.join(__dirname, '../uploads/', pelicula.poster);
-            
-//             if (fs.existsSync(pathImage)) {
-//                 console.log('Existe archivo');
-//                 fs.unlinkSync(pathImage)
-//             }
-            
-//         }
-       
-//         await Pelicula.findByIdAndUpdate(id, { poster: nombre })
-//         //responder
-//         res.json({ nombre });
-//     // } catch (error) {
-//     //     res.status(400).json({ error, 'general': 'Controlador' })
-//     // }
-
-// }
-
-const cargarArchivoCloud = async (req, res) => {
+const cargarImagen = async (req, res) => {
     cloudinary.config({
         cloud_name: process.env.CLOUDINARY_NAME,
         api_key: process.env.CLOUDINARY_KEY,
@@ -145,4 +115,4 @@ const peliculaDelete = async (req, res)=>{
 }
 
 
-export {peliculaGet, peliculaPost, peliculaGetId,peliculaGetTitulo,peliculaGetActoresPelicula,mostrarImagenCloud,cargarArchivoCloud,peliculaPut,peliculaDelete}
+export {peliculaGet, peliculaPost, peliculaGetId,peliculaGetTitulo,peliculaGetActoresPelicula,mostrarImagenCloud,cargarImagen,peliculaPut,peliculaDelete}
