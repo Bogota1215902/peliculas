@@ -36,15 +36,6 @@ const personaPost = async (req, res)=>{
     res.json({persona})
 }
 
-const personaPut = async (req, res)=>{
-    const {id} = req.params;    
-    const {poster,nombre,apellido,email,password}=req.body;
-    const persona= await Persona.findByIdAndUpdate(id,{poster,nombre,apellido,email,password});
-    res.json({
-        persona
-    })
-}
-
 const personPut = async (req, res) => {   
     const { id } = req.params;  
     const { _id, createdAt,estado, ...resto } = req.body;
@@ -161,4 +152,4 @@ const mostrarImagenCloud= async (req, res) => {
     }
 }
 
-export {mostrarImagenCloud, imagen, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail, personaPut,personPut,personaPutActive,personaPutDeActiv}
+export {mostrarImagenCloud, imagen, personaGet, personaPost, personaGetLogin, personaGetId, personaGetEmail,personPut,personaPutActive,personaPutDeActiv}
