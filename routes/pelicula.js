@@ -51,8 +51,9 @@ router.put('/:id',[
     check('id').isMongoId(),
     validarCampos
 ],peliculaPut)
-router.delete('/',[
-    
+router.delete('/:id',[
+    check('id').isMongoId(),
+    validarCampos
 ],peliculaDelete)
 
 
