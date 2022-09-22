@@ -47,7 +47,9 @@ router.post('/subir/:id',[
     check('id').isMongoId(),
 ],cargarImagen)
 
-router.put('/',[
+router.put('/:id',[
+    check('id').isMongoId(),
+    validarCampos
 ],peliculaPut)
 router.delete('/:id',[
     check('id').isMongoId(),
