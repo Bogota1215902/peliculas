@@ -21,8 +21,8 @@ const favoritoIdGet = async (req, res)=>{
 };
 
 const favoritoTituloGet = async (req, res)=>{
-  const {titulo} = req.params;    
-  const favorite= await Favorito.find({idpelicula:titulo})
+  const {ciudad} = req.params;    
+  const ciudades= await ciudad.find({idciudad:ciudad})
   .populate("idPelicula", ["titulo", "genero", "idioma", "director"])
   res.json({
       favorite,

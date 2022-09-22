@@ -31,8 +31,10 @@ class Server{
         this.app.use(fileUpload({
             useTempFiles:true,
             tempFileDir:'/tmp/',
-            createParentPath:true
+            createParentPath:true,
+        
         }));
+        this.app.use(express.static('public'));
     }
     async conectarBd(){
         await dbConnection()
