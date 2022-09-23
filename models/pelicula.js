@@ -7,7 +7,7 @@ const PeliculaSchema = new mongoose.Schema({
   genero: { type: String, maxLength: 25, required: true },
   sinopsis: { type: String,required: true},
   estado:{ type: String, maxLength: 25, required:0},
-  idioma: { type: String, required: 0, default: 0 },
+  idioma: { type: String, required: 0},
   director: { type: String, required: 0 },
   reparto: [
     {
