@@ -24,6 +24,7 @@ router.get('/actor/pelicula/:id',[
 router.post('/',[
     check('titulo', 'El titulo es obligatorio!').not().isEmpty(),
     check('duracion', 'El tiempo de duracion es obligatorio').not().isEmpty(),
+    check('genero', 'El campo genero es obligatorio').not().isEmpty(),
     check('sinopsis', 'La sinopsis es obligatorio').not().isEmpty(),
     check('estado', 'El estado es obligatorio').not().isEmpty(),
     check('idioma', 'El campo idioma es obligatorio').not().isEmpty(),
