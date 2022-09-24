@@ -29,7 +29,7 @@ router.post('/',[
     check('estado', 'El estado es obligatorio').not().isEmpty(),
     check('idioma', 'El campo idioma es obligatorio').not().isEmpty(),
     check('director', 'El campo director es obligatorio').not().isEmpty(),
-    check('reparto').custom(helpersPelicula.Reparto),
+ 
     validarCampos       
 ],peliculaPost)
 // router.post('/upload/:id',[

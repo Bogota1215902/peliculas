@@ -14,7 +14,7 @@ const PeliculaSchema = new mongoose.Schema({
       idActor: {
         type: mongoose.Schema.ObjectId,
         ref: "Actor",
-        required: true,
+        
       },
       personaje: { type: String },
       rol: { type: String },
