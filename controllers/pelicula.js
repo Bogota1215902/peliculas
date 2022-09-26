@@ -34,15 +34,12 @@ const peliculaGetTitulo= async (req, res)=>{
 }
 
 const peliculaGetGenero= async (req, res)=>{
-    const {genero}=req.query
-    const pelicula = await Pelicula.find({$or:[
-        {genero:new RegExp(genero)},
-        
-    ]}) 
-
-    res.json({
-        pelicula
-    })
+    const {genero} = req.params;
+        console.log(genero);
+        const pelicula= await Pelicula.find({genero})
+        res.json({
+            pelicula,
+        })
 }
 
 const peliculaGetActoresPelicula = async (req, res)=>{
