@@ -17,7 +17,7 @@ router.get('/id/:id',[
     validarCampos
 ],peliculaGetId)
 router.get('/titulo',peliculaGetTitulo)
-router.get('/genero/genero',peliculaGetGenero)
+router.get('/genero/genero/:genero',peliculaGetGenero)
 router.get('/actor/pelicula/:id',[
     check('id').isMongoId(),
     validarCampos
