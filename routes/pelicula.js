@@ -1,5 +1,5 @@
 import {Router} from "express"
-import {peliculaPost,peliculaGet,peliculaGetId,peliculaGetTitulo,peliculaGetActoresPelicula, cargarImagen, peliculaPut,peliculaDelete} from "../controllers/pelicula.js"
+import {peliculaPost,peliculaGet,peliculaGetId,peliculaGetTitulo,peliculaGetGenero,peliculaGetActoresPelicula, cargarImagen, peliculaPut,peliculaDelete} from "../controllers/pelicula.js"
 import { check } from "express-validator"
 import { validarCampos } from "../middleware/validar_campos.js"
 import {helpersPelicula} from "../helpers/pelicula.js"
@@ -17,6 +17,7 @@ router.get('/id/:id',[
     validarCampos
 ],peliculaGetId)
 router.get('/titulo',peliculaGetTitulo)
+router.get('/genero/genero',peliculaGetGenero)
 router.get('/actor/pelicula/:id',[
     check('id').isMongoId(),
     validarCampos
