@@ -9,7 +9,7 @@ const FavoritoSchema = new mongoose.Schema({
     idUsuario:{
         type: mongoose.Schema.ObjectId,
         ref:"Persona",
-        required: true
+       
     },
     createAt:{type:Date,default:Date.new}
 })
