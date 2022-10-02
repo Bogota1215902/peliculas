@@ -11,7 +11,7 @@ import { validarJWT } from "../middleware/validar-jwt.js"
 
 const router = new Router()
 
-router.get('/',peliculaGet)
+router.get('/', peliculaGet)
 router.get('/id/:id',[
     check('id').isMongoId(),
     validarCampos
