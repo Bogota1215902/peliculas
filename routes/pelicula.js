@@ -2,8 +2,8 @@ import {Router} from "express"
 import {peliculaPost,peliculaGet,peliculaGetId,peliculaGetTitulo,peliculaGetGenero,peliculaGetActoresPelicula, cargarImagen, peliculaPut,peliculaDelete} from "../controllers/pelicula.js"
 import { check } from "express-validator"
 import { validarCampos } from "../middleware/validar_campos.js"
-import {helpersPelicula} from "../helpers/pelicula.js"
-// import { validarJWT } from "../middleware/validar-jwt.js"
+//import {helpersPelicula} from "../helpers/pelicula.js"
+import { validarJWT } from "../middleware/validar-jwt.js"
 // import validarExistaArchivo from "../middleware/validar-existe-archivo.js"
 // import { cargarArchivo } from "../controllers/pelicula.js"
 // import subirArchivo from "../helpers/subir-archivo.js"
@@ -16,13 +16,13 @@ router.get('/id/:id',[
     check('id').isMongoId(),
     validarCampos
 ],peliculaGetId)
-router.get('/titulo',peliculaGetTitulo)
-router.get('/pelicula/genero/genero/:genero',peliculaGetGenero)
+router.get('/titulo/titulo/titulo/:titulo',peliculaGetTitulo)
 router.get('/actor/pelicula/:id',[
     check('id').isMongoId(),
     validarCampos
 ], peliculaGetActoresPelicula)
 router.post('/',[
+    validarJWT,
     check('titulo', 'El titulo es obligatorio!').not().isEmpty(),
     check('duracion', 'El tiempo de duracion es obligatorio').not().isEmpty(),
     check('genero', 'El campo genero es obligatorio').not().isEmpty(),
