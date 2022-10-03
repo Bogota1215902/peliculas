@@ -11,7 +11,7 @@ router.get('/:id',[
 ],favoritoIdGet)
 router.get('/titulo/:titulo',favoritoTituloGet)
 router.post('/',[
-    check('idPelicula', 'El id de pelicula es obligatorio!').not().isEmpty(),
+   
    
    
     validarCampos       
