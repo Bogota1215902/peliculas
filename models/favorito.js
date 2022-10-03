@@ -10,11 +10,15 @@ const FavoritoSchema = new mongoose.Schema({
         type: String
 
     },
-    idUsuario:{
-        type: mongoose.Schema.ObjectId,
-        ref:"Persona",
-       
+    poster:{
+        type: String
+
     },
+    genero:{
+        type: String
+
+    },
+   
     createAt:{type:Date,default:Date.new}
 })
 
