@@ -1,17 +1,23 @@
 import Favorito from '../models/favorito.js';
 
-const favoritoGet = async (req, res) => {
-  const favorito = 
-  await Favorito
-   .find()
-   .populate("idPelicula",["titulo", "genero", "idioma", "director"])
-   .populate("idUsuario", ["nombre", "apellido", "email", "password"])
+// const favoritoGet = async (req, res) => {
+//   const favorito = 
+//   await Favorito
+//    .find()
+//    .populate("idPelicula",["titulo", "genero", "idioma", "director"])
+//    .populate("idUsuario", ["nombre", "apellido", "email", "password"])
 
  
- res.json({
-   favorito
- })
-};
+//  res.json({
+//    favorito
+//  })
+// };
+const favoritoGet= async (req, res)=>{
+  const favorito = await Favorito.find()
+  res.json({
+      favorito
+  })
+}
 const favoritoIdGet = async (req, res)=>{
   const {id} = req.params;    
   const favorite= await Favorito.findById(id)
@@ -30,8 +36,8 @@ const favoritoTituloGet = async (req, res)=>{
 };
 
 const favoritoPost = async (req, res)=>{
-  const {idPelicula,poster,titulo,genero} = req.body
-  const favoritos = new Favorito({idPelicula,poster,titulo,genero})
+  const {idPelicula,titulo,poster,genero} = req.body
+  const favoritos = new Favorito({idPelicula,titulo,poster,genero})
   favoritos.save() //esto me permite guardar la informacion en la base de datos
   res.json({favoritos})
 };

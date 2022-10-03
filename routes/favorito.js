@@ -10,12 +10,7 @@ router.get('/:id',[
     validarCampos
 ],favoritoIdGet)
 router.get('/titulo/:titulo',favoritoTituloGet)
-router.post('/',[
-   
-   
-   
-    validarCampos       
-],favoritoPost)
+router.post('/',favoritoPost)
 router.delete('/:id',[
     check('id').isMongoId(),
     validarCampos
