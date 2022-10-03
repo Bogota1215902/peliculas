@@ -30,8 +30,8 @@ const favoritoTituloGet = async (req, res)=>{
 };
 
 const favoritoPost = async (req, res)=>{
-  const {idPelicula,titulo,idUsuario} = req.body
-  const favoritos = new Favorito({idPelicula,titulo,idUsuario})
+  const {idPelicula,poster,titulo,genero} = req.body
+  const favoritos = new Favorito({idPelicula,poster,titulo,genero})
   favoritos.save() //esto me permite guardar la informacion en la base de datos
   res.json({favoritos})
 };
