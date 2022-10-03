@@ -6,10 +6,7 @@ import {helpersPersona} from "../helpers/persona.js"
 import { validarJWT} from "../middleware/validar-jwt.js"
 const router = new Router()
 
-router.get('/',[
-    validarJWT,
-    validarCampos
-],personaGet)
+router.get('/',personaGet)
 
 router.get('/:id',[
     check('id').isMongoId(),

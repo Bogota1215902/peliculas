@@ -1,6 +1,6 @@
 import Favorito from '../models/favorito.js';
 
-// const favoritoGet = async (req, res) => {
+// const favorit = async (req, res) => {
 //   const favorito = 
 //   await Favorito
 //    .find()
