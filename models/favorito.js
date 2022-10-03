@@ -6,6 +6,10 @@ const FavoritoSchema = new mongoose.Schema({
         ref:"Pelicula",
         required: true
     },
+    titulo:{
+        type: String
+
+    },
     idUsuario:{
         type: mongoose.Schema.ObjectId,
         ref:"Persona",
