@@ -15,7 +15,7 @@ const comentariosUsuarioGet = async (req, res)=>{
   const {id} = req.params;    
   const coment= await Comentario.find({idUsuario:id})
   .populate("idPelicula", ["titulo", "genero", "idioma", "director"])
-    .populate("idUsuario", ["nombre", "apellido", "email", "password"])
+    .populate("idUsuario",["nombre", "apellido", "email", "password"])
 
   res.json({
       coment,
