@@ -8,7 +8,7 @@ const router = new Router()
 
 router.get('/',actorGet)
 router.get('/mostrar/id/:idActor',[
-    check('id').isMongoId(),
+    check('idActor').isMongoId(),
     validarCampos
 ],actorGetId)
 router.get('/nombre',actorGetNombre)
