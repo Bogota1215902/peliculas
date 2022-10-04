@@ -27,7 +27,7 @@ const peliculaGetTitulo= async (req, res)=>{
         {titulo:new RegExp(titulo)},
         
     ]})
-    .populate("idPelicula", ["titulo","duracion", "genero","sinopsis","estado", "idioma", "director","reparto"])
+    .populate("idPelicula",["titulo","duracion", "genero","sinopsis","estado", "idioma", "director","reparto"])
 
     res.json({
         pelicula
