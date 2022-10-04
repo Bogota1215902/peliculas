@@ -16,8 +16,7 @@ router.post('/',[
     validarCampos       
 ],actorPost)
 router.put('/:id',actorPut)
-
-router.post('/subir/:id',[
+router.post('/subir/:id', [
     check('id').isMongoId(),
 ],cargarArchivoCloud)
 
