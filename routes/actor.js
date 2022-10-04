@@ -6,7 +6,6 @@ import { validarCampos } from "../middleware/validar_campos.js"
 
 const router = new Router()
 
-
 router.get('/',actorGet)
 router.get('/mostrar/id/:id',actorGetId)
 router.get('/nombre',actorGetNombre)
@@ -15,7 +14,7 @@ router.post('/',[
     check('biografia', 'La biografia es obligatorio').not().isEmpty(),
     validarCampos       
 ],actorPost)
-router.put('/:id',actorPut)
+router.put('/:id', actorPut)
 router.post('/subir/:id', [
     check('id').isMongoId(),
 ],cargarArchivoCloud)
