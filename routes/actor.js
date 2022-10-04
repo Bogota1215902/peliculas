@@ -10,11 +10,11 @@ router.get('/',actorGet)
 router.get('/mostrar/id/:id',actorGetId)
 router.get('/nombre',actorGetNombre)
 router.post('/',[
-    check('nombre', 'El nombre es obligatorio!').not().isEmpty(),
+    check('nombre','El nombre es obligatorio!').not().isEmpty(),
     check('biografia', 'La biografia es obligatorio').not().isEmpty(),
     validarCampos       
 ],actorPost)
-router.put('/:id', actorPut)
+router.put('/:id',actorPut)
 router.post('/subir/:id', [
     check('id').isMongoId(),
 ],cargarArchivoCloud)
