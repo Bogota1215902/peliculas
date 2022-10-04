@@ -15,7 +15,7 @@ router.get('/:id',[
 
 router.get('/email/:email',personaGetEmail)
 router.post('/',[
-    //validarJWT,
+    validarJWT,
    
     check('nombre', 'El nombre es obligatorio!').not().isEmpty(),
     check('apellido', 'El apellido es obligatorio').not().isEmpty(),

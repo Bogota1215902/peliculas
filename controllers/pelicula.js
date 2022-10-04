@@ -26,7 +26,8 @@ const peliculaGetTitulo= async (req, res)=>{
     const pelicula = await Pelicula.find({$or:[
         {titulo:new RegExp(titulo)},
         
-    ]}) 
+    ]})
+    .populate("idPelicula", ["titulo","duracion", "genero","sinopsis","estado", "idioma", "director","reparto"])
 
     res.json({
         pelicula
