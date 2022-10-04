@@ -14,7 +14,6 @@ const actorGetId= async (req, res)=>{
     const {id}=req.params
     const actor = await Actor.findById(id) 
     .populate("idActor",[ "nombre", "alias","foto", "biografia"])
-
     res.json({
         actor
     })
