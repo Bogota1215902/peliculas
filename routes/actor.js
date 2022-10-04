@@ -7,7 +7,10 @@ import { validarCampos } from "../middleware/validar_campos.js"
 const router = new Router()
 
 router.get('/',actorGet)
-router.get('/mostrar/id/:id',actorGetId)
+router.get('/mostrar/id/:id',[
+    check('id').isMongoId(),
+    validarCampos
+],actorGetId)
 router.get('/nombre',actorGetNombre)
 router.post('/',[
     check('nombre','El nombre es obligatorio!').not().isEmpty(),
