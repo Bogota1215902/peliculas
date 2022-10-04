@@ -12,9 +12,9 @@ const ComentarioSchema = new mongoose.Schema({
         required: true
     },
     
-    comentario:{type: String,required:true},
+    comentario:{ type: String,required:true},
     
-    createAt:{type:Date,default:Date.now}
+    createAt:{ type:Date,default:Date.now}
 })
 
 export default mongoose.model('Comentario',ComentarioSchema)
