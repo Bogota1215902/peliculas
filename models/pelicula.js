@@ -18,7 +18,7 @@ const PeliculaSchema = new mongoose.Schema({
       },
       foto:{
         type: String
-      }
+      },
       personaje: { type: String },
       rol: { type: String },
     },
