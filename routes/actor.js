@@ -7,7 +7,7 @@ import { validarCampos } from "../middleware/validar_campos.js"
 const router = new Router()
 
 router.get('/',actorGet)
-router.get('/mostrar/id/:id',[
+router.get('/mostrar/id/:idActor',[
     check('id').isMongoId(),
     validarCampos
 ],actorGetId)
