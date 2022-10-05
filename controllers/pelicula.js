@@ -21,16 +21,7 @@ const peliculaGetId= async (req, res)=>{
     })
 }
 
-// const peliculaGetTitulo= async (req, res)=>{
-//     const {titulo}=req.query
-//     const pelicula = await Pelicula.find({$or:[
-//         {titulo:new RegExp(titulo)},
-//     ]})
-//     .populate("idPelicula",["titulo","duracion", "genero","sinopsis","estado", "idioma", "director","reparto"])
-//     res.json({
-//         pelicula
-//     })
-// }
+
 const peliculaGetGenero= async (req, res)=>{
     const {genero} = req.params;
         console.log(genero);
@@ -131,4 +122,4 @@ const peliculaDelete = async (req, res)=>{
 }
 
 
-export {peliculaGet, peliculaPost, peliculaGetId, peliculaGetTittle, peliculaGetTitulo,peliculaGetGenero,peliculaGetActoresPelicula,mostrarImagenCloud,cargarImagen,peliculaPut,peliculaDelete}
+export {peliculaGet, peliculaPost, peliculaGetId, peliculaGetTittle,peliculaGetGenero,peliculaGetActoresPelicula,mostrarImagenCloud,cargarImagen,peliculaPut,peliculaDelete}
