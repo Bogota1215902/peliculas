@@ -43,6 +43,7 @@ const peliculaGetTittle= async (req, res)=>{
     const {titulo} = req.params;
         console.log(titulo);
         const pelicula= await Pelicula.find({titulo})
+        .populate("titulo",["duracion", "genero","sinopsis","estado", "idioma", "director","reparto"])
         res.json({
             pelicula,
         })
