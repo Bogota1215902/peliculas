@@ -23,7 +23,7 @@ router.get('/actor/pelicula/:id',[
 ], peliculaGetActoresPelicula)
 router.post('/',[
     validarJWT,
-    check('titulo', 'El titulo es obligatorio!').not().isEmpty(),
+    check('titulo', 'El titulo es obligatorio!' ).not().isEmpty(),
     check('duracion', 'El tiempo de duracion es obligatorio').not().isEmpty(),
     check('genero', 'El campo genero es obligatorio').not().isEmpty(),
     check('sinopsis', 'La sinopsis es obligatorio').not().isEmpty(),
