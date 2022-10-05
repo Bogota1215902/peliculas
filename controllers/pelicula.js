@@ -39,6 +39,14 @@ const peliculaGetGenero= async (req, res)=>{
             pelicula,
         })
 }
+const peliculaGetTittle= async (req, res)=>{
+    const {titulo} = req.params;
+        console.log(titulo);
+        const pelicula= await Pelicula.find({titulo})
+        res.json({
+            pelicula,
+        })
+}
 
 const peliculaGetActoresPelicula = async (req, res)=>{
     const {id}= req.params;
@@ -122,4 +130,4 @@ const peliculaDelete = async (req, res)=>{
 }
 
 
-export {peliculaGet, peliculaPost, peliculaGetId,peliculaGetTitulo,peliculaGetGenero,peliculaGetActoresPelicula,mostrarImagenCloud,cargarImagen,peliculaPut,peliculaDelete}
+export {peliculaGet, peliculaPost, peliculaGetId, peliculaGetTittle, peliculaGetTitulo,peliculaGetGenero,peliculaGetActoresPelicula,mostrarImagenCloud,cargarImagen,peliculaPut,peliculaDelete}
